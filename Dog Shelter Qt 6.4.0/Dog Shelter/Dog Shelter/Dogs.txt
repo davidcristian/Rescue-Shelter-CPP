@@ -1,0 +1,10 @@
+mec,poodle,4,https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Full_attention_%288067543690%29.jpg/330px-Full_attention_%288067543690%29.jpg
+aydo,beagle,2,https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Beagle_600.jpg/330px-Beagle_600.jpg
+clyde,landseer,2,https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Landseer.jpg/330px-Landseer.jpg
+fixy,barbet,6,https://upload.wikimedia.org/wikipedia/commons/c/cf/Chien_de_race_Barbet.jpg
+ossi,poodle,3,https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Full_attention_%288067543690%29.jpg/330px-Full_attention_%288067543690%29.jpg
+zani,pug,3,https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Mops_oct09_cropped2.jpg/330px-Mops_oct09_cropped2.jpg
+geno,shikoku,3,https://upload.wikimedia.org/wikipedia/commons/6/69/Shikokuken.jpg
+dary,english mastiff,8,https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Westgort_Anticipation_17_months.JPG/330px-Westgort_Anticipation_17_months.JPG
+ikas,dachshund,6,https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Short-haired-Dachshund.jpg/330px-Short-haired-Dachshund.jpg
+flapp,maltese,4,https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Maltese_600.jpg/330px-Maltese_600.jpg
