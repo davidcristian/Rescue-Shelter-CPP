@@ -33,7 +33,7 @@ void Repository::read()
 }
 
 /// <summary>
-/// Writes a TXT file of the adoption list
+/// Writes a TXT file of the dogs in the repository
 /// </summary>
 void Repository::write()
 {
