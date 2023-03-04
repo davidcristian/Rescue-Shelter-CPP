@@ -7,7 +7,7 @@ A console-driven application that allows users to interact with a dog shelter.
 ### [Dog Shelter Qt 6.4.0](Dog%20Shelter%20Qt%206.4.0)
 An application created using Qt 6.4.0 that expands on the console application with extra functionality and a full-fledged GUI.
 
-### [Dog Shelter Qt 6.4.2 PostgreSQL](Dog%20Shelter%20Qt%206.4.0%20PostgreSQL)
+### [Dog Shelter Qt 6.4.2 PostgreSQL](Dog%20Shelter%20Qt%206.4.2%20PostgreSQL)
 An application created using Qt 6.4.2 that expands on the console application with extra functionality and a full-fledged GUI. This version uses PostgreSQL as the database.
 
 ### Images
