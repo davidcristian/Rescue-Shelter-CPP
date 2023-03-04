@@ -12,6 +12,9 @@ protected:
 	std::vector<Dog> dogs;
 
 public:
+	Repository() = default;
+	virtual ~Repository() = default;
+
 	virtual void add(const Dog& dog, int index = -1);
 	virtual void remove(const Dog& dog);
 	virtual void update(const Dog& oldDog, const Dog& newDog);
@@ -23,8 +26,6 @@ public:
 	Dog& operator[](const int& index) { return this->dogs[index]; };
 
 	int size() const { return static_cast<int>(this->dogs.size()); };
-	
-	virtual ~Repository() = default;
 };
 
 class FileRepository : public Repository
@@ -51,6 +52,7 @@ private:
 	
 public:
 	PostgreSQLRepository(const bool& init = false);
+	~PostgreSQLRepository();
 
 	void add(const Dog& dog, int index = -1) override;
 	void remove(const Dog& dog) override;

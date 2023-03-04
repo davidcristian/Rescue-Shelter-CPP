@@ -24,6 +24,8 @@
     <ClInclude Include="Action.h" />
     <ClInclude Include="AdoptionList.h" />
     <ClInclude Include="Comparator.h" />
+    <ClInclude Include="Config.h" />
+    <ClInclude Include="Config_template.h" />
     <ClInclude Include="Dog.h" />
     <ClInclude Include="AdoptionTableModel.h" />
     <ClInclude Include="PictureDelegate.h" />

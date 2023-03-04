@@ -5,6 +5,7 @@
 
 #include "Repository.h"
 #include "Validator.h"
+#include "Config.h"
 
 /// <summary>
 /// Adds a dog to the vector of dogs
@@ -153,12 +154,15 @@ void FileRepository::update(const Dog& oldDog, const Dog& newDog)
 /// <param name="init"></param>
 PostgreSQLRepository::PostgreSQLRepository(const bool& init) : Repository{}
 {
-	QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
-	db.setHostName("localhost");
-	db.setPort(5432);
-	db.setDatabaseName("shelter");
-	db.setUserName("postgres");
-	db.setPassword("YOUR_PASSWORD_HERE");
+	if (!QSqlDatabase::isDriverAvailable(DB_DRIVER))
+		throw DatabaseException("Could not find the PostgreSQL database driver!");
+
+	QSqlDatabase db = QSqlDatabase::addDatabase(DB_DRIVER, DB_STRING);
+	db.setHostName(DB_HOSTNAME);
+	db.setPort(DB_PORT);
+	db.setDatabaseName(DB_DATABASE);
+	db.setUserName(DB_USER);
+	db.setPassword(DB_PASSWORD);
 
 	if (!db.open())
 		throw DatabaseException("Could not connect to the database!");
@@ -172,7 +176,7 @@ PostgreSQLRepository::PostgreSQLRepository(const bool& init) : Repository{}
 /// </summary>
 void PostgreSQLRepository::loadDogs()
 {
-	QSqlQuery query;
+	QSqlQuery query{ QSqlDatabase::database(DB_STRING) };
 	query.prepare("SELECT * FROM dogs");
 	if (!query.exec())
 		throw DatabaseException("Could not load the dogs from the database!");
@@ -194,7 +198,7 @@ void PostgreSQLRepository::add(const Dog& dog, int index)
 {
 	Repository::add(dog, index);
 
-	QSqlQuery query;
+	QSqlQuery query{ QSqlDatabase::database(DB_STRING) };
 	query.prepare("INSERT INTO dogs (name, breed, age, photograph) VALUES (:name, :breed, :age, :photograph)");
 	
 	query.bindValue(":name", QString::fromStdString(dog.getName()));
@@ -210,7 +214,7 @@ void PostgreSQLRepository::remove(const Dog& dog)
 {
 	Repository::remove(dog);
 
-	QSqlQuery query;
+	QSqlQuery query{ QSqlDatabase::database(DB_STRING) };
 	query.prepare("DELETE FROM dogs WHERE name = :name AND breed = :breed");
 
 	query.bindValue(":name", QString::fromStdString(dog.getName()));
@@ -224,7 +228,7 @@ void PostgreSQLRepository::update(const Dog& oldDog, const Dog& newDog)
 {
 	Repository::update(oldDog, newDog);
 	
-	QSqlQuery query;
+	QSqlQuery query{ QSqlDatabase::database(DB_STRING) };
 	query.prepare("UPDATE dogs SET name = :newName, breed = :newBreed, age = :newAge, photograph = :newPhotograph WHERE name = :oldName AND breed = :oldBreed");
 	
 	query.bindValue(":oldName", QString::fromStdString(oldDog.getName()));
@@ -237,4 +241,10 @@ void PostgreSQLRepository::update(const Dog& oldDog, const Dog& newDog)
 	
 	if (!query.exec())
 		throw DatabaseException("Could not update the dog in the database!");
+}
+
+PostgreSQLRepository::~PostgreSQLRepository()
+{
+	QSqlDatabase::database(DB_STRING).close();
+	QSqlDatabase::removeDatabase(DB_STRING);
 }
