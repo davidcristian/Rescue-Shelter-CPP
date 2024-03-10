@@ -41,7 +41,14 @@ This is a software application designed to assist in managing the adoption proce
 
 See the console version's [REQUIREMENTS.md](./Rescue%20Shelter%20Console/REQUIREMENTS.md) file and the Qt version's [REQUIREMENTS.md](./Rescue%20Shelter%20Qt/REQUIREMENTS.md) file for more details.
 
-## Installation
+## Getting Started
+
+### Prerequisites
+
+- Visual Studio 2022 with the `Desktop development with C++` workload
+- Qt 6.4.2, alongside PostgreSQL 15.2
+
+### Installation
 
 1. Clone the repository.
 
@@ -53,10 +60,13 @@ See the console version's [REQUIREMENTS.md](./Rescue%20Shelter%20Console/REQUIRE
 
 ## Usage
 
-- Choose the desired mode at the start of the application: `admin` or `user`.
-- Follow the on-screen instructions to manage or adopt animals.
-- Use the `Undo` and `Redo` buttons to revert or redo changes.
-- View and manage the personal `Adoption List` in the designated tab.
+1. Choose the desired mode at the start of the application: `admin` or `user`.
+
+2. Follow the on-screen instructions to manage or adopt animals.
+
+3. Use the `Undo` and `Redo` buttons to revert or redo changes.
+
+4. View and manage the personal `Adoption List` in the designated tab.
 
 ## Preview
 
